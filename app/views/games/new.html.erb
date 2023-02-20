@@ -1,0 +1,13 @@
+<h1>New game</h1>
+<ul class = "list-group list-group-horizontal ms-4">
+  <% @letters.each do |l| %>
+  <li class="list-group-item me-3 square-letter bg-primary"><%= l.upcase %></li>
+  <% end %>
+</ul>
+<form action="/score" method="post" data-turbo="false">
+  <p>What is the longest word you can find?</p>
+  <input type="text" name="word">
+  <%= hidden_field_tag 'letters', @letters.join %>
+  <input type="submit" value="Play">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>

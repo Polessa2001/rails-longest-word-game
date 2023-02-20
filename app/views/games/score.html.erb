@@ -1,0 +1,9 @@
+<h1>RESULT</h1>
+<% if @included == false %>
+  <p>Sorry but this word <%= @word %> can't be built out of <%= params[:letters] %></p>
+<% elsif @user["found"] %>
+  <p>Congratulations! <%= @word %> is valid English word!</p>
+<% else%>
+  <p>Sorry but the word <%= @word %> doesn't seem to be valid English word...</p>
+<% end %>
+<%= link_to "Play again", new_path, class: "link-primary text-decoration-none" %>
